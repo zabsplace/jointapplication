@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Job Training Application — ZABS Place + Cakeable</title>
+  <meta name="description" content="Learn about the ZABS Place and Cakeable job training tracks, then apply through our joint application form." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* -------- Brand tokens (ZABS Place lead) -------- */
+    :root{
+      --orange:        #F58220;
+      --orange-deep:   #E26A0C;
+      --orange-soft:   #FCE4CC;
+      --navy:          #0F2940;
+      --navy-soft:     #2A4661;
+      --teal:          #3DA9C9;
+      --teal-deep:     #2A8CAB;
+      --cream:         #FFF8F0;
+      --paper:         #FFFFFF;
+      --ink:           #142235;
+      --ink-soft:      #4A5A6E;
+      --rule:          #E6D7C2;
+
+      --radius:        18px;
+      --radius-sm:     10px;
+      --shadow-sm:     0 2px 6px rgba(15,41,64,.08);
+      --shadow-md:     0 10px 30px rgba(15,41,64,.12);
+      --maxw:          1120px;
+
+      --font:          'Nunito', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ margin:0; padding:0; }
+    body{
+      font-family:var(--font);
+      color:var(--ink);
+      background:var(--cream);
+      line-height:1.55;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{ color:var(--orange-deep); }
+    a:hover{ color:var(--navy); }
+
+    h1,h2,h3,h4{ font-family:var(--font); color:var(--navy); margin:0 0 .5em; line-height:1.15; font-weight:800; }
+    h1{ font-size: clamp(2rem, 4vw + 1rem, 3.4rem); }
+    h2{ font-size: clamp(1.5rem, 1.6vw + 1rem, 2.2rem); }
+    h3{ font-size: 1.25rem; }
+    p{ margin:0 0 1em; }
+
+    .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 24px; }
+
+    /* -------- Top utility bar -------- */
+    .topbar{ background:var(--navy); color:#fff; font-size:.85rem; }
+    .topbar .wrap{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:8px 24px; flex-wrap:wrap; gap:8px;
+    }
+    .topbar a{ color:#fff; text-decoration:none; opacity:.9; }
+    .topbar a:hover{ opacity:1; }
+    .topbar .dot{ opacity:.5; margin:0 8px; }
+
+    /* -------- Header -------- */
+    header.site{ background:var(--paper); border-bottom:1px solid var(--rule); }
+    header.site .wrap{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:18px 24px; gap:16px; flex-wrap:wrap;
+    }
+    .lockup{ display:flex; align-items:center; gap:14px; }
+    .logo-z{
+      width:54px; height:54px; display:grid; place-items:center;
+      border-radius:12px; background:var(--orange); color:#fff;
+      font-weight:900; font-size:2rem; letter-spacing:-2px;
+      box-shadow:var(--shadow-sm);
+    }
+    .plus{ font-weight:900; color:var(--navy); font-size:1.4rem; }
+    .logo-c{
+      width:54px; height:54px; display:grid; place-items:center;
+      border-radius:12px; background:var(--teal); color:#fff;
+      font-weight:900; font-size:2rem; box-shadow:var(--shadow-sm);
+    }
+    .brand-names{ display:flex; flex-direction:column; line-height:1.1; }
+    .brand-names .b1{ font-weight:900; color:var(--navy); letter-spacing:.3px; }
+    .brand-names .b2{ font-size:.85rem; color:var(--ink-soft); }
+    .nav-cta{
+      display:inline-flex; align-items:center; gap:8px;
+      background:var(--navy); color:#fff;
+      padding:10px 16px; border-radius:999px;
+      text-decoration:none; font-weight:700; font-size:.95rem;
+      box-shadow:var(--shadow-sm);
+    }
+    .nav-cta:hover{ background:var(--orange); color:#fff; }
+
+    /* -------- Hero -------- */
+    .hero{
+      background:
+        radial-gradient(1200px 500px at 85% -20%, rgba(245,130,32,.18), transparent 60%),
+        radial-gradient(800px 400px at 0% 10%, rgba(61,169,201,.18), transparent 60%),
+        var(--cream);
+      padding: 64px 0 48px; position:relative; overflow:hidden;
+    }
+    .hero .wrap{ position:relative; z-index:1; }
+    .hero .eyebrow{
+      display:inline-block; background:var(--orange-soft); color:var(--orange-deep);
+      font-weight:800; letter-spacing:.6px; text-transform:uppercase;
+      font-size:.78rem; padding:6px 12px; border-radius:999px; margin-bottom:18px;
+    }
+    .hero h1 span.amp{ color:var(--orange); }
+    .hero h1 span.k{ color:var(--teal-deep); }
+    .hero .lede{ font-size:1.15rem; color:var(--navy-soft); max-width:62ch; }
+    .hero .cta-row{ display:flex; gap:12px; flex-wrap:wrap; margin-top:22px; }
+
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:14px 22px; border-radius:999px;
+      font-weight:800; text-decoration:none; font-size:1rem;
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease, color .12s ease;
+      border:2px solid transparent; box-shadow:var(--shadow-sm); cursor:pointer;
+    }
+    .btn-primary{ background:var(--orange); color:#fff; }
+    .btn-primary:hover{ background:var(--orange-deep); transform: translateY(-1px); box-shadow:var(--shadow-md); }
+    .btn-secondary{ background:#fff; color:var(--navy); border-color:var(--navy); }
+    .btn-secondary:hover{ background:var(--navy); color:#fff; }
+    .btn .arrow{ transition: transform .12s ease; }
+    .btn:hover .arrow{ transform: translateX(3px); }
+
+    /* -------- Section base -------- */
+    section{ padding: 64px 0; }
+    section.alt{ background:var(--paper); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
+    .section-head{ text-align:center; max-width:760px; margin: 0 auto 36px; }
+    .section-head .eyebrow{
+      display:inline-block; color:var(--orange-deep); font-weight:800;
+      letter-spacing:.6px; text-transform:uppercase; font-size:.78rem; margin-bottom:8px;
+    }
+    .section-head p{ color:var(--ink-soft); font-size:1.05rem; margin-top:8px; }
+
+    /* -------- Track cards -------- */
+    .tracks{ display:grid; grid-template-columns: 1fr 1fr; gap:24px; }
+    @media (max-width:820px){ .tracks{ grid-template-columns: 1fr; } }
+    .track{
+      background:#fff; border:2px solid var(--rule); border-radius:var(--radius);
+      padding:28px; display:flex; flex-direction:column;
+      box-shadow:var(--shadow-sm);
+      transition: border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+    }
+    .track:hover{ box-shadow:var(--shadow-md); transform: translateY(-2px); }
+    .track.zabs{ border-top:6px solid var(--orange); }
+    .track.cake{ border-top:6px solid var(--teal); }
+    .track .tag{
+      display:inline-block; font-size:.75rem; font-weight:800; letter-spacing:.5px; text-transform:uppercase;
+      padding:5px 10px; border-radius:999px; margin-bottom:10px;
+    }
+    .track.zabs .tag{ background:var(--orange-soft); color:var(--orange-deep); }
+    .track.cake .tag{ background:#D7EEF5; color:var(--teal-deep); }
+    .track h3{ font-size:1.6rem; margin-bottom:8px; }
+    .track .sub{ color:var(--ink-soft); margin-bottom:18px; }
+
+    .keyfacts{
+      display:grid; grid-template-columns: 1fr; gap:10px;
+      background: rgba(245,130,32,.06);
+      border:1px solid rgba(245,130,32,.18);
+      border-radius:12px; padding:14px 16px; margin-bottom:18px;
+    }
+    .track.cake .keyfacts{
+      background: rgba(61,169,201,.07);
+      border-color: rgba(61,169,201,.22);
+    }
+    .keyfacts .row{ display:flex; gap:12px; align-items:flex-start; }
+    .keyfacts .row .lbl{
+      font-size:.72rem; font-weight:800; letter-spacing:.6px; text-transform:uppercase;
+      color:var(--orange-deep); flex:0 0 90px; padding-top:2px;
+    }
+    .track.cake .keyfacts .row .lbl{ color:var(--teal-deep); }
+    .keyfacts .row .val{ flex:1; color:var(--ink); font-weight:600; font-size:.95rem; line-height:1.45; }
+
+    .track h4.in-card{ font-size:.95rem; text-transform:uppercase; letter-spacing:.6px; color:var(--ink-soft); margin: 4px 0 8px; }
+    .track ul{ list-style:none; padding:0; margin:0 0 18px; }
+    .track ul li{
+      padding-left:26px; position:relative; margin-bottom:8px;
+      color:var(--ink); font-weight:600;
+    }
+    .track ul li::before{
+      content:""; position:absolute; left:0; top:6px;
+      width:16px; height:16px; border-radius:50%; background: var(--orange);
+    }
+    .track.cake ul li::before{ background: var(--teal); }
+
+    /* -------- Side-by-side comparison strip -------- */
+    .compare{
+      background:#fff; border:1px solid var(--rule); border-radius:var(--radius);
+      box-shadow:var(--shadow-sm); overflow:hidden;
+    }
+    .compare table{ width:100%; border-collapse: collapse; }
+    .compare th, .compare td{
+      padding:14px 18px; text-align:left; vertical-align:top;
+      border-bottom:1px solid var(--rule); font-size:.95rem;
+    }
+    .compare th{
+      background: var(--cream); color:var(--navy); font-weight:800; letter-spacing:.3px;
+    }
+    .compare tr:last-child td, .compare tr:last-child th{ border-bottom:0; }
+    .compare .hdr th{ font-size:.85rem; text-transform:uppercase; letter-spacing:.6px; }
+    .compare .hdr .zcol{ color:var(--orange-deep); }
+    .compare .hdr .ccol{ color:var(--teal-deep); }
+    .compare .cat{ width:170px; color:var(--ink-soft); font-weight:700; font-size:.85rem; text-transform:uppercase; letter-spacing:.6px; }
+    @media (max-width:680px){
+      .compare .cat{ width:auto; display:block; padding-bottom:0; border:0; }
+      .compare td{ display:block; padding:8px 18px; }
+      .compare tr{ display:block; border-bottom:1px solid var(--rule); padding:10px 0; }
+      .compare tr:last-child{ border-bottom:0; }
+      .compare thead{ display:none; }
+    }
+
+    /* -------- Journey tabs -------- */
+    .tabs{
+      display:flex; gap:8px; justify-content:center; flex-wrap:wrap;
+      margin: 0 auto 26px; max-width:560px;
+    }
+    .tab-btn{
+      background:#fff; border:2px solid var(--rule); color:var(--navy);
+      padding:10px 18px; border-radius:999px; font-weight:800; cursor:pointer;
+      font-size:.95rem; box-shadow:var(--shadow-sm);
+      transition: all .12s ease;
+    }
+    .tab-btn:hover{ border-color:var(--orange); }
+    .tab-btn.active{ background:var(--orange); border-color:var(--orange); color:#fff; }
+    .tab-btn[data-track="cakeable"].active{ background:var(--teal); border-color:var(--teal); }
+
+    .journey-panel{ display:none; }
+    .journey-panel.active{ display:block; }
+
+    /* Journey grid */
+    .journey{
+      display:grid; gap:14px;
+      grid-template-columns: repeat(6, 1fr);
+    }
+    @media (max-width:1080px){ .journey{ grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width:680px){ .journey{ grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width:440px){ .journey{ grid-template-columns: 1fr; } }
+    .step{
+      background:#fff; border-radius:var(--radius); padding:20px;
+      border:1px solid var(--rule); text-align:center; box-shadow:var(--shadow-sm);
+      position:relative;
+    }
+    .step .icon{
+      width:54px; height:54px; border-radius:50%;
+      background:var(--orange); color:#fff;
+      display:grid; place-items:center; margin: 0 auto 10px;
+      font-weight:900; font-size:1.1rem;
+      box-shadow: 0 0 0 6px rgba(245,130,32,.15);
+    }
+    .step.cake .icon{ background:var(--teal); box-shadow: 0 0 0 6px rgba(61,169,201,.18); }
+    .step.assess .icon{ background:#E2A446; box-shadow: 0 0 0 6px rgba(226,164,70,.18); }
+    .step h4{ font-size:1rem; margin-bottom:6px; color:var(--navy); }
+    .step p{ font-size:.88rem; color:var(--ink-soft); margin:0; }
+    .step .pill{
+      display:inline-block; font-size:.7rem; font-weight:800; letter-spacing:.5px;
+      text-transform:uppercase; padding:3px 8px; border-radius:999px;
+      background: rgba(226,164,70,.18); color:#9A6918; margin-bottom:6px;
+    }
+
+    /* -------- Criteria -------- */
+    .crit-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:24px; }
+    @media (max-width:780px){ .crit-grid{ grid-template-columns: 1fr; } }
+    .crit{
+      background:#fff; border:1px solid var(--rule); border-radius:var(--radius);
+      padding:24px; box-shadow:var(--shadow-sm);
+    }
+    .crit h3{ display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+    .crit h3 .bar{ width:6px; height:22px; border-radius:3px; background:var(--orange); }
+    .crit.attitude h3 .bar{ background:var(--teal); }
+    .crit ul{ list-style:none; padding:0; margin:0; }
+    .crit ul li{
+      padding:8px 0 8px 30px; position:relative; border-bottom:1px dashed var(--rule);
+    }
+    .crit ul li:last-child{ border-bottom:0; }
+    .crit ul li::before{
+      content:"✓"; position:absolute; left:0; top:8px;
+      width:22px; height:22px; border-radius:6px;
+      background:var(--orange); color:#fff;
+      display:grid; place-items:center; font-size:.85rem; font-weight:900;
+    }
+    .crit.attitude ul li::before{ background:var(--teal); }
+
+    /* -------- Apply band -------- */
+    .apply-band{
+      background:
+        radial-gradient(800px 300px at 100% 0%, rgba(255,255,255,.12), transparent),
+        linear-gradient(135deg, var(--navy), #1B3E5C);
+      color:#fff; text-align:center;
+    }
+    .apply-band h2{ color:#fff; }
+    .apply-band p{ color:#D6E2EE; max-width:62ch; margin:0 auto 22px; }
+    .apply-band .btn-primary{ background:var(--orange); }
+    .apply-band .btn-primary:hover{ background:var(--orange-deep); }
+    .apply-band .small{ display:block; margin-top:14px; font-size:.85rem; color:#9FB6CB; }
+
+    /* -------- FAQ -------- */
+    details{
+      background:#fff; border:1px solid var(--rule); border-radius:var(--radius-sm);
+      padding:16px 20px; margin-bottom:10px; box-shadow:var(--shadow-sm);
+    }
+    summary{
+      cursor:pointer; font-weight:800; color:var(--navy);
+      list-style:none; display:flex; justify-content:space-between; align-items:center; gap:14px;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    summary::after{
+      content:"+"; color:var(--orange); font-size:1.4rem; font-weight:900; line-height:1;
+      transition: transform .15s ease;
+    }
+    details[open] summary::after{ content:"–"; }
+    details p{ margin-top:10px; color:var(--ink-soft); }
+
+    /* -------- Footer -------- */
+    footer.site{ background:var(--navy); color:#CDD9E5; padding:36px 0 28px; }
+    footer.site .wrap{ display:grid; grid-template-columns: 1.4fr 1fr 1fr; gap:24px; }
+    @media (max-width:780px){ footer.site .wrap{ grid-template-columns: 1fr; } }
+    footer.site h4{ color:#fff; font-size:.95rem; margin-bottom:8px; text-transform:uppercase; letter-spacing:.6px; }
+    footer.site a{ color:#CDD9E5; text-decoration:none; display:block; padding:3px 0; }
+    footer.site a:hover{ color:#fff; }
+    footer.site .legal{
+      grid-column: 1 / -1; border-top:1px solid #2A4661;
+      padding-top:16px; margin-top:10px; font-size:.8rem; color:#9FB6CB;
+    }
+
+    .pattern{
+      position:absolute; inset:0; pointer-events:none; opacity:.06;
+      background-image:
+        radial-gradient(circle at 10% 20%, var(--navy) 1.5px, transparent 2px),
+        radial-gradient(circle at 80% 60%, var(--navy) 1.5px, transparent 2px),
+        radial-gradient(circle at 50% 85%, var(--navy) 1.5px, transparent 2px);
+      background-size: 60px 60px, 80px 80px, 100px 100px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <span>A joint training program of <b>ZABS Place</b> &amp; <b>Cakeable</b></span>
+      <span>
+        <a href="mailto:hello@wearecakeable.org">hello@wearecakeable.org</a>
+        <span class="dot">•</span>
+        <a href="https://www.zabsplace.org" target="_blank" rel="noopener">zabsplace.org</a>
+      </span>
+    </div>
+  </div>
+
+  <header class="site">
+    <div class="wrap">
+      <div class="lockup" aria-label="ZABS Place plus Cakeable">
+        <div class="logo-z" aria-hidden="true">Z</div>
+        <span class="plus" aria-hidden="true">+</span>
+        <div class="logo-c" aria-hidden="true">C</div>
+        <div class="brand-names">
+          <span class="b1">ZABS Place + Cakeable</span>
+          <span class="b2">Job Training Program</span>
+        </div>
+      </div>
+      <a class="nav-cta" href="#apply">Apply Now <span aria-hidden="true">→</span></a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="pattern" aria-hidden="true"></div>
+    <div class="wrap">
+      <span class="eyebrow">Now accepting applications</span>
+      <h1>Two paths. One <span class="amp">application</span>. Built around <span class="k">you</span>.</h1>
+      <p class="lede">
+        ZABS Place and Cakeable have teamed up to offer one joint job training program
+        for young adults with intellectual and developmental disabilities. Learn how the
+        two tracks differ below, then choose your preferred track inside the application.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-secondary" href="#tracks">Compare the two tracks</a>
+        <a class="btn btn-primary" href="#apply">Apply now <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="tracks">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Choose your track</span>
+        <h2>Same application. Two different journeys.</h2>
+        <p>
+          The application is the same for both tracks — you'll choose which one fits you
+          inside the form. Here's what makes each track distinct.
+        </p>
+      </div>
+
+      <div class="tracks">
+        <!-- ZABS Place -->
+        <article class="track zabs">
+          <span class="tag">ZABS Place Track</span>
+          <h3>Retail Training</h3>
+          <p class="sub">Customized training at ZABS Place — a thrift boutique with a wide range of roles, paced to each Talent's growth.</p>
+
+          <div class="keyfacts">
+            <div class="row"><span class="lbl">Pay</span><span class="val">A 3-month unpaid internship phase for job sampling and baseline education. Paid training begins after that and continues through job placement.</span></div>
+            <div class="row"><span class="lbl">Length</span><span class="val">Internship and employability phase varies by individual — sometimes up to 2 years, based on progress and skill development.</span></div>
+            <div class="row"><span class="lbl">Where</span><span class="val">ZABS Place, Matthews NC</span></div>
+          </div>
+
+          <h4 class="in-card">What you'll train in</h4>
+          <ul>
+            <li>Greeting customers &amp; running the register</li>
+            <li>Sorting, pricing &amp; organizing inventory</li>
+            <li>Folding, hanging &amp; styling clothing</li>
+            <li>eBay posting, photography &amp; online sales</li>
+            <li>Software testing &amp; electronics repair</li>
+            <li>Order fulfillment &amp; warehouse work</li>
+          </ul>
+        </article>
+
+        <!-- Cakeable -->
+        <article class="track cake">
+          <span class="tag">Cakeable Track</span>
+          <h3>Food Service Training</h3>
+          <p class="sub">Hands-on barista training at Cakeable Cafe — a focused, paid internship rooted in one core role.</p>
+
+          <div class="keyfacts">
+            <div class="row"><span class="lbl">Pay</span><span class="val">Paid from day one. Interns earn throughout the entire internship and all the way until job placement.</span></div>
+            <div class="row"><span class="lbl">Length</span><span class="val">Internship ends at 6 months for every intern, regardless of progress — to keep the program moving and create space for the next cohort.</span></div>
+            <div class="row"><span class="lbl">Where</span><span class="val">Cakeable Cafe, Charlotte NC</span></div>
+          </div>
+
+          <h4 class="in-card">What you'll train in</h4>
+          <ul>
+            <li>Greeting customers &amp; running the register</li>
+            <li>Espresso, drinks &amp; barista skills</li>
+            <li>Prepping ingredients &amp; food handling</li>
+            <li>Restocking &amp; cleaning the café</li>
+            <li>Customer service in a fast-paced setting</li>
+            <li>Team collaboration on the line</li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- Quick comparison table -->
+      <div style="margin-top:32px;">
+        <div class="compare" role="table" aria-label="Track comparison">
+          <table>
+            <thead>
+              <tr class="hdr">
+                <th class="cat">At a glance</th>
+                <th class="zcol">ZABS Place Track</th>
+                <th class="ccol">Cakeable Track</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="cat">Pay</td>
+                <td>3-month unpaid sampling phase, then paid through placement</td>
+                <td>Paid from day one through placement</td>
+              </tr>
+              <tr>
+                <td class="cat">Length</td>
+                <td>Variable — up to ~2 years, paced to the individual</td>
+                <td>6-month internship, fixed for every Talent</td>
+              </tr>
+              <tr>
+                <td class="cat">Skill scope</td>
+                <td>Broad — retail, online sales, electronics, software testing, order fulfillment</td>
+                <td>Focused — barista &amp; café operations</td>
+              </tr>
+              <tr>
+                <td class="cat">Industry</td>
+                <td>Thrift boutique &amp; e-commerce</td>
+                <td>Food service &amp; hospitality</td>
+              </tr>
+              <tr>
+                <td class="cat">Location</td>
+                <td>ZABS Place, Matthews NC</td>
+                <td>Cakeable Cafe, Charlotte NC</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Journey tabs -->
+  <section class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">How it works</span>
+        <h2>From application to a real job.</h2>
+        <p>Each track has its own path. Toggle between them to see the journey end-to-end.</p>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Choose a journey">
+        <button class="tab-btn active" data-track="zabs" role="tab" aria-selected="true">ZABS Place Journey</button>
+        <button class="tab-btn" data-track="cakeable" role="tab" aria-selected="false">Cakeable Journey</button>
+      </div>
+
+      <!-- ZABS journey -->
+      <div class="journey-panel active" data-panel="zabs" role="tabpanel">
+        <div class="journey">
+          <div class="step">
+            <div class="icon">1</div>
+            <h4>Apply Online</h4>
+            <p>One application for both tracks. We follow up within 2 business days.</p>
+          </div>
+          <div class="step">
+            <div class="icon">2</div>
+            <h4>Meet with ZABS Coach</h4>
+            <p>Visit us so we can learn about your dreams, strengths, and goals.</p>
+          </div>
+          <div class="step">
+            <div class="icon">3</div>
+            <h4>Join the Training Program</h4>
+            <p>Begin with a 3-month unpaid sampling phase, then move into paid training.</p>
+          </div>
+          <div class="step">
+            <div class="icon">4</div>
+            <h4>Evaluate Next Steps</h4>
+            <p>Make the best choices for skill development that will lead toward your dream career.</p>
+          </div>
+          <div class="step">
+            <div class="icon">5</div>
+            <h4>Graduation</h4>
+            <p>Build a resume, run mock interviews, and celebrate the work you've done.</p>
+          </div>
+          <div class="step">
+            <div class="icon">6</div>
+            <h4>Job Placement</h4>
+            <p>Get matched with a real job in the community. Coaches help you settle in.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cakeable journey -->
+      <div class="journey-panel" data-panel="cakeable" role="tabpanel">
+        <div class="journey">
+          <div class="step cake">
+            <div class="icon">1</div>
+            <h4>Apply</h4>
+            <p>One application for both tracks.</p>
+          </div>
+          <div class="step cake">
+            <div class="icon">2</div>
+            <h4>Begin Training</h4>
+            <p>Start paid training at the café or bakery.</p>
+          </div>
+          <div class="step assess">
+            <span class="pill">3-month mark</span>
+            <div class="icon">3</div>
+            <h4>3-Month Assessment</h4>
+            <p>Identify skills, growth areas, and potential job paths.</p>
+          </div>
+          <div class="step cake">
+            <div class="icon">4</div>
+            <h4>Interview</h4>
+            <p>Apply for relevant positions while training continues.</p>
+          </div>
+          <div class="step cake">
+            <div class="icon">5</div>
+            <h4>Graduate</h4>
+            <p>Wrap up the internship and celebrate with the team.</p>
+          </div>
+          <div class="step cake">
+            <div class="icon">6</div>
+            <h4>Start the Job</h4>
+            <p>Cakeable job coach is on-site for your first week.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Admissions criteria</span>
+        <h2>Who's a good fit?</h2>
+        <p>
+          We generally look for applicants who meet the criteria below. Admission is
+          always at the judgement of the intake team and may vary by track.
+        </p>
+      </div>
+
+      <div class="crit-grid">
+        <div class="crit">
+          <h3><span class="bar"></span> Skills</h3>
+          <ul>
+            <li>Can complete a task (for example, folding a towel or wiping a table)</li>
+            <li>Understands and follows verbal directions</li>
+            <li>Can communicate basic needs (bathroom, hunger, pain, or needing help in an emergency)</li>
+          </ul>
+        </div>
+        <div class="crit attitude">
+          <h3><span class="bar"></span> Attitude</h3>
+          <ul>
+            <li>Is able to be redirected when off-task or upset</li>
+            <li>Is willing to learn and wants to work</li>
+            <li>Has a support network of family or caregivers</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="apply-band" id="apply">
+    <div class="wrap">
+      <h2>Ready to apply?</h2>
+      <p>
+        It's one application for both tracks. You'll choose ZABS Place or Cakeable
+        inside the form — or tell us you'd like help deciding. We reply within 2 business days.
+      </p>
+      <a class="btn btn-primary"
+         href="https://www.cognitoforms.com/CakeableCharlotte1/JobTrainingApplicationZABSCakeable"
+         target="_blank" rel="noopener">
+        Start your application <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <span class="small">Takes about 10–15 minutes. You can save and come back later.</span>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap" style="max-width:820px;">
+      <div class="section-head">
+        <span class="eyebrow">Common questions</span>
+        <h2>Good to know before you apply.</h2>
+      </div>
+
+      <details>
+        <summary>Do I have to choose a track before I apply?</summary>
+        <p>No. The application asks you to pick your preferred track, but you can also tell us you're unsure. We'll talk through both options with you at the Meet &amp; Greet.</p>
+      </details>
+      <details>
+        <summary>When do I start getting paid?</summary>
+        <p>It depends on the track. Cakeable interns are paid from day one. ZABS Place starts with a 3-month unpaid sampling phase to find the right fit, then pay begins and continues through job placement.</p>
+      </details>
+      <details>
+        <summary>How long does the program last?</summary>
+        <p>Cakeable's internship is 6 months for every intern. ZABS Place is variable — paced to each individual's progress and skill development, sometimes up to 2 years.</p>
+      </details>
+      <details>
+        <summary>What kinds of jobs do graduates go into?</summary>
+        <p>Cakeable graduates typically move into café, hospitality, and food-service roles. ZABS Place graduates go into a wider range — retail, e-commerce, electronics, fulfillment, and more — based on the skills they developed.</p>
+      </details>
+      <details>
+        <summary>Is there a waitlist?</summary>
+        <p>Yes, especially at Cakeable, where openings typically run 6–24 months. If we can't bring you in right away, we'll share volunteer opportunities, socials, and workshops to stay involved in the meantime.</p>
+      </details>
+      <details>
+        <summary>I need help filling out the form. Who do I contact?</summary>
+        <p>Email <a href="mailto:hello@wearecakeable.org">hello@wearecakeable.org</a> and we'll be happy to help with reasonable accommodations.</p>
+      </details>
+    </div>
+  </section>
+
+  <footer class="site">
+    <div class="wrap">
+      <div>
+        <h4>ZABS Place + Cakeable</h4>
+        <p style="color:#9FB6CB; max-width:42ch;">
+          Where potential is found. A joint job training program preparing young adults
+          with intellectual and developmental disabilities for meaningful employment.
+        </p>
+      </div>
+      <div>
+        <h4>ZABS Place</h4>
+        <a href="https://www.zabsplace.org" target="_blank" rel="noopener">zabsplace.org</a>
+        <a href="https://www.zabsplace.org" target="_blank" rel="noopener">Visit the store</a>
+        <a href="https://www.zabsplace.org" target="_blank" rel="noopener">Donate</a>
+      </div>
+      <div>
+        <h4>Cakeable</h4>
+        <a href="https://www.wearecakeable.org" target="_blank" rel="noopener">wearecakeable.org</a>
+        <a href="https://www.wearecakeable.org" target="_blank" rel="noopener">Visit the café</a>
+        <a href="mailto:hello@wearecakeable.org">hello@wearecakeable.org</a>
+      </div>
+      <div class="legal">
+        ZABS Place + Cakeable is committed to a policy of Equal Employment Opportunity and will
+        not discriminate against an applicant or employee on the basis of race, color, religion,
+        creed, national origin or ancestry, sex, age, physical or mental disability, veteran or
+        military status, genetic information, sexual orientation, marital status, or any other
+        legally recognized protected basis under federal, state, or local law. We are happy to
+        provide reasonable accommodations to applicants with disabilities — please contact us at
+        <a href="mailto:hello@wearecakeable.org" style="display:inline; color:#9FB6CB; text-decoration:underline;">hello@wearecakeable.org</a> for assistance.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth-scroll for in-page anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+
+    // Journey tabs
+    const tabs = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.journey-panel');
+    tabs.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const track = btn.dataset.track;
+        tabs.forEach(b => {
+          const active = b.dataset.track === track;
+          b.classList.toggle('active', active);
+          b.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        panels.forEach(p => {
+          p.classList.toggle('active', p.dataset.panel === track);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
